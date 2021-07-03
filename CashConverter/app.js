@@ -8,7 +8,7 @@ console.log('Iniciando bot');
 puppeteer.use(StealthPlugin());
 
 async function robo() {
-   const browser = await puppeteer.launch({ headless: true });
+   const browser = await puppeteer.launch({ args:['--no-sandbox', '--disable-setuid-sandbox'], headless: true });
    const page = await browser.newPage();
    const moedaBase = readlineSync.question('Informe uma moeda base: ') || 'dolar';
    const moedaFinal = readlineSync.question('Informe uma moeda desejada:') || 'real';
